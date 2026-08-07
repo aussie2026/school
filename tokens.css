@@ -1,0 +1,114 @@
+/* ============================================================
+   AUSSIE EDUCATION: Design tokens
+   "Australian Day" palette: golden light, coastal sky, coral earth
+   ============================================================ */
+:root {
+  /* ---- Australian Day palette (canonical) ---- */
+  --wattle: #F5C84C;       /* Golden Wattle: sun, energy, secondary accent */
+  --wattle-dark: #E0AE28;
+  --cream: #FFF6E8;        /* Sunlit Cream: warm background */
+  --sky: #2E86C1;          /* Coastal Sky: brand blue accent */
+  --sky-dark: #1F6699;
+  --coral: #D6293A;        /* Aussie Red: brand red, CTAs */
+  --coral-dark: #B01F2E;
+  --eucalyptus: #789A72;   /* Eucalyptus: natural green */
+  --eucalyptus-dark: #5F7F59;
+  --ocean: #142A4C;        /* Aussie Navy: brand blue, contrast, dark sections */
+  --ocean-tint: #1F3D6B;
+  --cloud: #FFFDF7;        /* Cloud White: warm white, breathing room */
+  --ink-c: #1E2A42;        /* Ink: body text */
+
+  /* ---- Legacy aliases (keep old variable names so existing CSS/HTML
+     doesn't need to be rewritten line by line: only the values move) ---- */
+  --navy-900: var(--ocean);
+  --navy-800: var(--ocean-tint);
+  --navy-700: #2E5687;
+  --red-600: var(--coral);
+  --red-700: var(--coral-dark);
+  --white: var(--cloud);
+  --ice: var(--cream);
+  --blue-tint: #DCEBF7;
+  --red-tint: #FBDFE0;
+  --ink: var(--ink-c);
+  --ink-soft: #55607A;
+  --line: #E7E0D0;
+  --line-strong: #D8CDA8;
+
+  /* Extra accent tints used by scenes/doodles */
+  --wattle-tint: #FDECC0;
+  --sky-tint: #DCEBF7;
+  --eucalyptus-tint: #E4EDE2;
+  --coral-tint: #FBDFE0;
+
+  /* ---- Tipografia ---- */
+  --font-heading: "Bricolage Grotesque", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Nunito Sans", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-script: "Caveat", cursive;
+
+  --fs-h1: clamp(2.25rem, 1.55rem + 3.1vw, 4rem);
+  --fs-h2: clamp(1.75rem, 1.35rem + 1.8vw, 2.75rem);
+  --fs-h3: clamp(1.35rem, 1.15rem + 0.9vw, 1.75rem);
+  --fs-h4: clamp(1.125rem, 1.02rem + 0.45vw, 1.375rem);
+  --fs-lead: clamp(1.05rem, 0.98rem + 0.3vw, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-eyebrow: 0.8125rem;
+
+  /* Espaçamento (escala 4px) */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+  --sp-10: 8rem;
+
+  /* Raios: mais orgânicos, "desenhados à mão" */
+  --r-sm: 14px;
+  --r-md: 24px;
+  --r-lg: 36px;
+  --r-xl: 48px;
+  --r-blob: 42% 58% 65% 35% / 45% 40% 60% 55%;
+  --r-pill: 999px;
+
+  /* Sombras: sutis, quentes, nunca pesadas */
+  --shadow-sm: 0 1px 2px rgba(23, 54, 93, 0.07), 0 1px 1px rgba(23, 54, 93, 0.04);
+  --shadow-md: 0 8px 24px rgba(23, 54, 93, 0.10);
+  --shadow-lg: 0 20px 48px rgba(23, 54, 93, 0.14);
+  --shadow-red: 0 10px 26px rgba(214, 41, 58, 0.32);
+  --shadow-wattle: 0 10px 26px rgba(245, 200, 76, 0.35);
+
+  /* Container */
+  --container: 1280px;
+  --container-narrow: 860px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 600ms;
+
+  /* Header */
+  --header-h: 96px;
+  --header-h-compact: 68px;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --header-h: 76px;
+    --header-h-compact: 62px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms;
+    --dur-base: 1ms;
+    --dur-slow: 1ms;
+  }
+}
