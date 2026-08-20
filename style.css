@@ -402,7 +402,7 @@ p { color: var(--ink-soft); }
 /* ============================================================
    ROUTE TRANSITION: canguru no patinete atravessa a tela
    ============================================================ */
-.route-transition { position: relative; height: 110px; background: var(--cloud); overflow: hidden; }
+.route-transition { position: relative; height: 170px; background: var(--cloud); overflow: hidden; }
 .route-transition .route-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .route-transition__mascot {
   position: absolute; top: 50%; left: -12%; width: 120px; height: auto;
@@ -415,7 +415,7 @@ p { color: var(--ink-soft); }
   50% { transform: translateY(-70%) rotate(2deg); }
   100% { left: 104%; transform: translateY(-40%) rotate(-2deg); }
 }
-@media (max-width: 720px) { .route-transition { height: 80px; } .route-transition__mascot { width: 84px; } }
+@media (max-width: 720px) { .route-transition { height: 120px; } .route-transition__mascot { width: 84px; } }
 @media (prefers-reduced-motion: reduce) {
   .route-transition__mascot { animation: none; left: 40%; }
 }

@@ -392,13 +392,30 @@
       });
     });
 
+    const WHATSAPP_NUMBER = "556139720719";
+
+    const buildWhatsAppMessage = () => {
+      const lines = [];
+      Array.from(visitForm.querySelectorAll(".field")).forEach((fieldEl) => {
+        const input = fieldEl.querySelector("input, select, textarea");
+        if (!input || !input.value.trim()) return;
+        const label = fieldEl.querySelector("label")?.textContent.replace(/\*/g, "").trim();
+        let value = input.value.trim();
+        if (input.tagName === "SELECT") {
+          value = input.options[input.selectedIndex]?.textContent.trim() || value;
+        }
+        if (label) lines.push(`${label}: ${value}`);
+      });
+      return lines.join("\n");
+    };
+
     visitForm.addEventListener("submit", (e) => {
       e.preventDefault();
       let allValid = true;
       fields.forEach((fieldEl) => { if (!validateField(fieldEl)) allValid = false; });
 
       // honeypot antispam
-      const honeypot = visitForm.querySelector('input[name="empresa_site"]');
+      const honeypot = visitForm.querySelector('input[name="empresa_site"], input[name="c-empresa"]');
       if (honeypot && honeypot.value !== "") return;
 
       if (!allValid) {
@@ -411,6 +428,10 @@
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = document.documentElement.lang === "en" ? "Sending..." : "Enviando..."; }
 
       window.setTimeout(() => {
+        const message = buildWhatsAppMessage();
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        window.open(waUrl, "_blank", "noopener");
+
         visitForm.hidden = true;
         const success = document.querySelector("[data-form-success]");
         if (success) {
@@ -421,7 +442,7 @@
           if (plane && !prefersReducedMotion) plane.classList.add("fly");
         }
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
-      }, 700);
+      }, 500);
     });
   }
 
